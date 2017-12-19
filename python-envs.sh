@@ -9,6 +9,7 @@ conda create -n ______ python=x.x anaconda # 3. Create a virtual environment for
 source activate ______ # 4. Activate your virtual environment.
 conda install -n ______ [package] # 5. Install additional Python packages to a virtual environment.
 source deactivate # 6. Deactivate your virtual environment.
+conda create --name myclone --clone myenv # clone
 conda remove -n ______ -all # 6. Delete a no longer needed virtual environment
 conda info --envs # view all envs
 conda env list    # view all envs
@@ -17,6 +18,12 @@ conda install -n ______ pip # using pip in env
 conda list # view packages
 conda list python # view specific package
 
+# generate conda requirements.txt (not including pip dependencies)
+conda list -e > requirements.txt
+# generate conda requirements.yml (including pip dependencies)
+conda env export > requirements.yml
+# re-create requirements in new env
+conda env create -f requirements.yml
 
 # vanilla virtual envs
 pip install virtualenvwrapper
