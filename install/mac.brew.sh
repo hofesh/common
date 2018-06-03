@@ -20,6 +20,8 @@ brew install watch       # periodic command execution
 brew install autojump
 brew install hh          # https://github.com/dvorka/hstr
 brew instal htop
+brew install grep
+
 
 # https://github.com/junegunn/fzf
 brew install fzf

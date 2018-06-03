@@ -52,6 +52,8 @@ diff_fast() { awk 'ARGIND==1 { _[$0]=1; next } !($0 in _) { print } { _[$0]=0 } 
 freq_fast() { awk '{ ++_[$0] } END { PROCINFO["sorted_in"]="@val_num_desc"; for (k in _) print _[k], k }' $*; }
 hist_fast=freq_fast
 
+nunique_fast() { awk '{ ++_[$0] } END { print length(_) }' $*; }
+
 # histogram of one field by another (whitespace version)
 histby  () { awk     "{ d[\$$1]+= \$$2 } END { for (k in d) print d[k] \"\t\" k }" | sort -nr; }
 # histogram of one field by another (naive csv version)

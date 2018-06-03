@@ -43,9 +43,10 @@ function timer_stop {
     elif ((m > 0)); then timer_show=${m}m${s}s
     elif ((s >= 10)); then timer_show=${s}.$((ms / 100))s
     elif ((s > 0)); then timer_show=${s}.$(printf %03d $ms)s
-    elif ((ms >= 100)); then timer_show=${ms}ms
-    elif ((ms > 0)); then timer_show=${ms}.$((us / 100))ms
-    else timer_show=${us}us
+    #elif ((ms >= 100)); then timer_show=${ms}ms
+    #elif ((ms > 0)); then timer_show=${ms}.$((us / 100))ms
+    #else timer_show=${us}us
+    else timer_show=""
     fi
     unset timer_start
 }
@@ -59,13 +60,16 @@ set_prompt () {
     history -a # Append the new history lines to the history file
     #history -n # Append the history lines not already read from the history file to the current history list | we don't want this options on to allow ctrl+r to work locally per shell
 
-    local Reset='\[\e[00m\]'
-    local FancyX='\342\234\227'
-    local GoSymbol='λ'
-    #local FancyX='!'
-    local Checkmark='\342\234\223'
-    #local Checkmark='$'
+    # NOTE!!!
+    # the special non ascii chars have started causing "conda activate env" to fail. not sure why.
+    #local FancyX='\342\234\227'
+    local FancyX='!'
+    #local GoSymbol='λ'
+    local GoSymbol='>'
+    #local Checkmark='\342\234\223'
+    local Checkmark='v'
 
+    local Reset='\[\e[00m\]'
     # regular colors
     local Black="\[\033[0;30m\]"   
     local Red="\[\033[0;31m\]"   
@@ -191,13 +195,13 @@ set_prompt () {
     [[ -n $parent ]] && PS1+="$Cyan(in $parent) "
 
     # ellapsed time and current date time
-    PS1+="$Yellow($timer_show) \D{%d-%m-%Y} \t"
+    [[ -n $timer_show ]] && PS1+="$Yellow($timer_show) \D{%d-%m-%Y} \t"
     
     # jobs
     PS1+="$Magenta\[\`jobs_count\`\]" # background jobs count
 
     # path
-    PS1+="$White in $Green$NEW_PWD"
+    PS1+="$White""in $Green$NEW_PWD"
     
     # git branch and status
     [[ -n $GITBRANCH ]] && PS1+="$White on $Red$GITBRANCH"

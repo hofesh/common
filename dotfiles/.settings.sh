@@ -67,3 +67,7 @@ man() {
 # default editor
 export VISUAL=micro
 export EDITOR="$VISUAL"
+
+export TAB='\t'
+
+export LC_ALL=C

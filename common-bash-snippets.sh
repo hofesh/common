@@ -40,6 +40,7 @@ watch -d ls -l   # watch a directory for changes
 
 ============= zipping =============
 tar xfvz file   # unzip tar ball
+tar cfvz file folder   # zip tar ball
 gzip file       # inplace compress
 gzip -d file    # inplace decompress
 gzip --fast     # for fast processing
@@ -71,6 +72,8 @@ htop # task manager
 ps aux | sort -nk +4 | tail | cut -c -200 # Display the top ten running processes - sorted by memory usage
 pstree # process tree
 pkill -f python # kill all python processes
+ps -u USER # show all processes of user
+killall -u USER bunzip2 # kill process of user
 
 
 =========== background processes ============
@@ -82,6 +85,7 @@ fg # bring the most recent background process back to the foreground
 disown -h # disown the most recent background job. This will remove it from your current tty session. It will not be able to be brought back to the foreground. You will have to control it either with kill or something else.
 disown -a && exit # Close shell keeping all subprocess running
 kill %1 # kill job #1 on the jobs list
+kill -9 $(jobs -p) # kill all jobs (if they are stopped)
 nohup ./go.py > go.log 2>&1 & # async run
 
 
@@ -150,3 +154,26 @@ which -a CMD    # find all instances of CMD in PATH
 tail -f file # use tail -F to also keep track if the file get's closed/reopen/removed
 less +F file
 
+
+
+============ find ===============
+find . -name "*.tif"        # find by globbing
+find . -size 0 -delete      # remove empty files
+find . -size -160k -delete  # remove files smaller than 160k
+
+============= rsync ===========
+rsync opt FROM TO
+--ignore-existing
+--update
+-h: human readable numbers
+-v: verbose
+-r: recurse into directories
+-P: --partial (keep partially transferred files) +
+    --progress (show progress during transfer)
+-t: preserve modification times
+
+rsync --ignore-existing -hvPt SERVER:FOLDER/* LOCAL_FOLDER
+
+# parallel rsync: https://unix.stackexchange.com/questions/189878/parallelise-rsync-using-gnu-parallel
+                                                  rsync -vzmh --stats --safe-links --ignore-existing --dry-run SERVER:FOLDER    LOCAL_FOLDER > /tmp/transfer.log
+cat /tmp/transfer.log | parallel --will-cite -j 5 rsync -vzmh --stats --safe-links --ignore-existing           SERVER:FOLDER/{} LOCAL_FOLDER > /tmp/result.log

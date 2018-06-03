@@ -114,6 +114,9 @@ seq 100 | shuf | paste - - - -  # generate data
 # nl
 seq 100 | sample -r 0.1 | nl # enmurate lines
 
+# iteration with piping
+cat lines.txt | while read ln; do prco1 $ln | proc2 | proc3 > out.txt
+
 # xargs
 arguments_source | xargs command # Main usage pattern:
 find . -name '*.backup' | xargs rm -v # Delete all files with a `.backup` extension:
@@ -144,6 +147,10 @@ parallel --dry-run 'sleep {}; echo {}' ::: 5 2 1 4 3  # show which command will 
 seq 10 | parallel -n0 echo "Hello, World"      # repeat the same command without using the arguments
 seq 10 | parallel -n2 echo "Hello, World"      # repeat the command with 2 arguments each
 parallel -a hosts.txt --colsep ' ' ping -c {1} {2}  # pass arguments by index from a delimiter seperated file
+
+# many parallel examples: http://www.rankfocus.com/use-cpu-cores-linux-commands/
+cat big_file.txt | parallel --pipe grep 'pattern' # run parallel grep (unordered)
+cat big_file.txt | parallel -k --pipe grep 'pattern' # run parallel grep (ordered)
 
 
 

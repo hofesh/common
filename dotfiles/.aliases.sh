@@ -8,8 +8,8 @@ alias ....='cd ../../..'
 alias cd..='cd ..'                                          # catch typos
 
 # command defaults
-alias ls='ls -AFf --show-control-chars --color=always'       # all, classify, ignore-case
-alias ll='ls -FfGAhl --show-control-chars --color=always'    # classify, ignore-case, no-group, all, human-readable, long-list
+alias ls='ls -AF --show-control-chars --color=always'       # all, classify, ignore-case
+alias ll='ls -FGAhl --show-control-chars --color=always'    # classify, ignore-case, no-group, all, human-readable, long-list
 alias l="ll"
 alias llt='ll -tr'                                         # list by last modified
 alias lls='ll -Sr'                                         # list by size
@@ -34,7 +34,9 @@ alias hist="cat $historyLogPath/custom*"                                # show a
 alias histfzf="cat $historyLogPath/custom* | fzf"                       # show all custom history files with fzf
 alias revrows="rev"       # reverse chars in each line
 alias revlines="tail -r"  # reverse order of lines
-alias space="du -ha . | sort -rh | less"
+alias space="du -ha . | sort -rh | less" # find folders which take up most space
+alias files="du --inodes -d 3 | sort -rh | less" # find folders with most files in them with recursive folders for given depth
+alias files2="du --inodes -S | sort -rh | less" # find folders with most files in them
 
 # search
 alias fr='find / 2> /dev/null -iname '  # find root
@@ -86,6 +88,13 @@ alias tsvtk="csvtk -t"    # tsv variant of csvtk
 alias dm="datamash -H"       # datamash with headers
 alias dmc="datamash -H -t,"  # datamash with headers and tsv
 alias jqc="jq -C"  # jq with color
+alias jqv="jqc . | lessc"  # jq and less with color
+alias len="awk '{print length}'"
+
+alias grep="ggrep"
+alias fgrep="ggrep -F"
+alias pgrepu="parallel --pipe fgrep" # unordered parallel grep
+alias pgrepo="parallel --pipe fgrep" # ordered parallel fgrep
 
 # mlr tsv defaults
 alias mlrt="mlr --tsv"
@@ -108,3 +117,6 @@ alias q="python2 /usr/local/bin/q"
 alias p2="python2"
 alias p3="python3"
 alias p="python"
+
+alias tab2nl="tr $'\t' '\n'"
+alias excel="open -a /Applications/Microsoft\ Excel.app"
