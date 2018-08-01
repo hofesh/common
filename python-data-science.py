@@ -4,8 +4,8 @@ import pandas as pd
 # arguments
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument('--a', required=True)
-parser.add_argument('--b', required=False, default=10, type=int)
+parser.add_argument('-a', '--alpha', required=True)
+parser.add_argument('-b', required=False, default=10, type=int)
 args = parser.parse_args()
 
 
@@ -64,18 +64,37 @@ random.shuffle(array)
 
 
 # parallel
+# https://docs.python.org/3.4/library/multiprocessing.html?highlight=process
+from multiprocessing import Pool
+with Pool(3) as pool:
+    results = pool.map(func, list_of_single_arg)
+# https://docs.python.org/3.4/library/multiprocessing.html?highlight=process
+from multiprocessing import Pool
+with Pool(3) as pool:
+    results = pool.starmap(func_with_multi_args, list_of_tuples)
 # https://wltrimbl.github.io/2014-06-10-spelman/intermediate/python/04-multiprocessing.html
 import multiprocessing
 pool = multiprocessing.Pool( args.numProcessors )
 results = [pool.apply_async( plotData, t ) for t in tasks]
 for result in results:
     print(result.get())
-#https://docs.python.org/dev/library/concurrent.futures.html#processpoolexecutor-example
+# https://stackoverflow.com/questions/9786102/how-do-i-parallelize-a-simple-python-loop
+pool = multiprocessing.Pool(4)
+results = zip(*pool.map(calc_stuff, range(0, 10)))     
+# https://docs.python.org/dev/library/concurrent.futures.html#processpoolexecutor-example
 import concurrent.futures
 PRIMES = range(1, 100)
 with concurrent.futures.ProcessPoolExecutor() as executor:
     for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
         print('%d is prime: %s' % (number, prime))
+# https://blog.dominodatalab.com/simple-parallelization/
+from joblib import Parallel, delayed
+import multiprocessing
+inputs = range(10) 
+def processInput(i):
+	return i * i
+num_cores = multiprocessing.cpu_count()
+results = Parallel(n_jobs=num_cores)(delayed(processInput)(i) for i in inputs)
 
 ################ numpy ###################
 

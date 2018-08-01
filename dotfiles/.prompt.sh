@@ -206,7 +206,7 @@ set_prompt () {
     # git branch and status
     [[ -n $GITBRANCH ]] && PS1+="$White on $Red$GITBRANCH"
 
-    [[ -n $CONDA_DEFAULT_ENV ]] && [[ -n $GITBRANCH ]] && PS1+="$White env $Yellow$CONDA_DEFAULT_ENV"
+    [[ -n $CONDA_DEFAULT_ENV ]] && PS1+="$White env $Yellow$CONDA_DEFAULT_ENV"
 
     PS1+="\n"
 

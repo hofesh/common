@@ -46,6 +46,7 @@ alias f="fr"                            # f is by default find root
 # git
 alias g="git"
 alias ga="git add"
+alias gam="git add -u" # git add modified files only
 alias gs="git status"
 alias gd="git diff --color-words=."
 alias gdt="git difftool"
@@ -120,3 +121,4 @@ alias p="python"
 
 alias tab2nl="tr $'\t' '\n'"
 alias excel="open -a /Applications/Microsoft\ Excel.app"
+alias nb="jupyter notebook"
