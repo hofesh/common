@@ -1,5 +1,6 @@
 #! bash
 
+shopt -s extglob        # enables extended globbing
 shopt -s cdspell        # automatically corrects small typos in directory names and jumps to the best guess of existing directories
 shopt -s checkwinsize   # check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
 #stty -ixon # ctrl+s = forward search bash history

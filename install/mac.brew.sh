@@ -21,6 +21,7 @@ brew install autojump
 brew install hh          # https://github.com/dvorka/hstr
 brew instal htop
 brew install grep
+brew install wget --with-debug
 
 
 # https://github.com/junegunn/fzf

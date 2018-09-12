@@ -145,6 +145,7 @@ parallel echo ::: 0 1 ::: 0 1           # run on every combination of inputs
 parallel -k 'sleep {}; echo {}' ::: 5 2 1 4 3  # keep order of output to match that of input
 parallel --dry-run 'sleep {}; echo {}' ::: 5 2 1 4 3  # show which command will be executed
 seq 10 | parallel -n0 echo "Hello, World"      # repeat the same command without using the arguments
+seq 10 | parallel -n0 "curl --header 'Connection: keep-alive' http://localhost:3000 | grep -o xyz | wc -l" # repeat command, complex command
 seq 10 | parallel -n2 echo "Hello, World"      # repeat the command with 2 arguments each
 parallel -a hosts.txt --colsep ' ' ping -c {1} {2}  # pass arguments by index from a delimiter seperated file
 
