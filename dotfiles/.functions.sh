@@ -99,3 +99,5 @@ headert() { header $1 "$(echo "${@:2}" | tr ',' '\t')" ; }
 zip_folder() { zip -r "$1.zip" "$1"; }
 
 tar_folder() { tar cvf "$1.tar" "$1"; }
+
+git_expire_and_gc() { git reflog expire --expire-unreachable=now --all && git gc --prune=now; }
