@@ -1,0 +1,1 @@
+ cp ~/.config/Code/User/settings.json ~/Dropbox/git/common/dotfiles/manual-copy/.vscode_user_settings.json

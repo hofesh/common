@@ -21,8 +21,8 @@ sudo apt install datamash
 
 
 # general utils
-
-sudo apt-get install xclip
+sudo apt install curl
+sudo apt install xclip
 sudo apt install mc # Midnight Commander
 # https://github.com/ranger/ranger
 # http://ranger.nongnu.org/cheatsheet.svg
@@ -44,6 +44,9 @@ sudo pip3 install gitsome
 # https://github.com/junegunn/fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+# ripgrep
+
 
 # go lang
 sudo apt install golang-go
