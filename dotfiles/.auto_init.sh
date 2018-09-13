@@ -18,6 +18,6 @@ type fasd >/dev/null 2>&1 && eval "$(fasd --init auto)"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # adds a env_parallel functions that allows to run parallel executions on functions
-. /usr/local/bin/env_parallel.bash
+[ -f /usr/local/bin/env_parallel.bash ] && source /usr/local/bin/env_parallel.bash
 
 

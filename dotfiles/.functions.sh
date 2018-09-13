@@ -96,6 +96,6 @@ awkt() { awk -F $'\t' "BEGIN { OFS=FS } $1" ; }
 # a   b   c 
 headert() { header $1 "$(echo "${@:2}" | tr ',' '\t')" ; }
 
+zip_folder() { zip -r "$1.zip" "$1"; }
 
-
-
+tar_folder() { tar cvf "$1.tar" "$1"; }

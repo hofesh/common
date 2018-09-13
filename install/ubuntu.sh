@@ -50,11 +50,15 @@ sudo apt install golang-go
 
 # pup
 go get github.com/ericchiang/pup
+# or just download the pre-compiled linux-am64 release
 
 # 
 sudo apt install python3-pip
 pip3 install --upgrade pip
 pip3 install git+https://github.com/twosigma/ngrid
 
-
-
+# increase swap-size
+sudo swapoff -a
+sudo dd if=/dev/zero of=/swapfile bs=1M count=8000
+sudo mkswap /swapfile
+sudo swapon /swapfile

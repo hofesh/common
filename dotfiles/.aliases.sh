@@ -92,8 +92,6 @@ alias jqc="jq -C"  # jq with color
 alias jqv="jqc . | lessc"  # jq and less with color
 alias len="awk '{print length}'"
 
-alias grep="ggrep"
-alias fgrep="ggrep -F"
 alias pgrepu="parallel --pipe fgrep" # unordered parallel grep
 alias pgrepo="parallel --pipe fgrep" # ordered parallel fgrep
 

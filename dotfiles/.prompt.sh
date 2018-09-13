@@ -10,7 +10,7 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 parse_git_status() {
-	git status --porcelain=v2 --branch 2> /dev/null | parse-git-status
+	[ -f parse_git_status ] && git status --porcelain=v2 --branch 2> /dev/null | parse-git-status
 }
 
 jobs_count() {
@@ -155,7 +155,7 @@ set_prompt () {
 	fi
 
     local parent=$(ps -o comm= $PPID)
-    [[ $parent == login || $parent == /usr/bin/login ]] && parent=""
+    [[ $parent == login || $parent == /usr/bin/login || $parent == gnome-terminal- || $parent == guake ]] && parent=""
     # https://github.com/ranger/ranger/blob/master/examples/bash_subshell_notice.sh
     [[ -n "$RANGER_LEVEL" ]] && parent="ranger"
 
