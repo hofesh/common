@@ -101,3 +101,6 @@ zip_folder() { zip -r "$1.zip" "$1"; }
 tar_folder() { tar cvf "$1.tar" "$1"; }
 
 git_expire_and_gc() { git reflog expire --expire-unreachable=now --all && git gc --prune=now; }
+git_delete_from_history() {
+  git filter-branch --force --index-filter "git rm --cached --ignore-unmatch $1" --prune-empty --tag-name-filter cat -- --all  
+}
