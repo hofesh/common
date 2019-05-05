@@ -155,7 +155,7 @@ set_prompt () {
 	fi
 
     local parent=$(ps -o comm= $PPID)
-    [[ $parent == login || $parent == /usr/bin/login || $parent == gnome-terminal- || $parent == guake ]] && parent=""
+    [[ $parent == login || $parent == /usr/bin/login || $parent == gnome-terminal- || $parent == guake || $parent == *"Code Helper"* ]] && parent=""
     # https://github.com/ranger/ranger/blob/master/examples/bash_subshell_notice.sh
     [[ -n "$RANGER_LEVEL" ]] && parent="ranger"
 

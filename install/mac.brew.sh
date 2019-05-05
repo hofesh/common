@@ -4,25 +4,36 @@
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor # has errors
 
+# use GNU utils should before setting up common dotfiles
+brew install coreutils  # GNU version of core utils (ls, cat, ..) https://www.gnu.org/software/coreutils
+brew install moreutils  # extras like parallel https://joeyh.name/code/moreutils/  https://rentes.github.io/unix/utilities/2015/07/27/moreutils-package/
+brew install findutils  # locate, updatedb, find, xargs  https://www.gnu.org/software/findutils/
+brew install gnu-sed     # GNU sed is not part of coreutils
+brew install gnu-tar
+brew install grep
+brew install gawk
+brew install gnutls gnu-indent gnu-getopt
+
+brew install git
+# manual steps
+# git clone common
+# setup manual dotfiles
+
+brew install pv          # pipe visuzlizer
+brew install tldr        # https://github.com/tldr-pages/tldr
+brew install watch       # periodic command execution
+brew instal htop
+brew install wget --with-debug
+
 # generic mac/bash setup
 brew install python3
 brew install mas         # Mac App Store command line
-# GNU versions of core and more utils
-brew install coreutils  # GNU version of core utils (grep, cat, ..)
-brew install moreutils  # extras like parallel https://rentes.github.io/unix/utilities/2015/07/27/moreutils-package/
-brew install findutils  # locate, updatedb, find, xargs
-brew install gnu-sed     # GNU sed is not part of coreutils
-brew install pv          # pipe visuzlizer
-brew install shellcheck  # (+ vscode ext)
-brew install tldr        # https://github.com/tldr-pages/tldr
-brew install micro       # https://github.com/zyedidia/micro
-brew install watch       # periodic command execution
 brew install autojump
+brew install shellcheck  # (+ vscode ext)
+brew install micro       # https://github.com/zyedidia/micro
 brew install hh          # https://github.com/dvorka/hstr
-brew instal htop
-brew install grep
-brew install wget --with-debug
 
+brew install ctags       # to have Cmd+T (tag search) in vscode working
 
 # https://github.com/junegunn/fzf
 brew install fzf

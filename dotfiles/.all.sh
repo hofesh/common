@@ -7,6 +7,7 @@ source "$DOTFILES/.aliases.sh"
 source "$DOTFILES/.functions.sh"
 source "$DOTFILES/.auto_init.sh"
 source "$DOTFILES/.prompt.sh"
+source "$DOTFILES/.paths.sh"
 #source "$DOTFILES/.prompt-alt.sh"
 
 # $include "$DOTFILES/.inputrc" # doesn't work on Mac

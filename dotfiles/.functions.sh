@@ -101,6 +101,18 @@ zip_folder() { zip -r "$1.zip" "$1"; }
 tar_folder() { tar cvf "$1.tar" "$1"; }
 
 git_expire_and_gc() { git reflog expire --expire-unreachable=now --all && git gc --prune=now; }
+
 git_delete_from_history() {
   git filter-branch --force --index-filter "git rm --cached --ignore-unmatch $1" --prune-empty --tag-name-filter cat -- --all  
+}
+
+# https://stackoverflow.com/questions/10622179/how-to-find-identify-large-commits-in-git-history
+# show largest git files
+git_space() { git rev-list --objects --all \
+| git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+| sed -n 's/^blob //p' \
+| sort --numeric-sort --key=2 \
+| cut -c 1-12,41- \
+| $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest \
+| less +G
 }

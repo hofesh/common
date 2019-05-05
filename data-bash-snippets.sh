@@ -154,6 +154,14 @@ cat big_file.txt | parallel --pipe grep 'pattern' # run parallel grep (unordered
 cat big_file.txt | parallel -k --pipe grep 'pattern' # run parallel grep (ordered)
 
 
+# down all all curl 
+# get them with Chrome -> Network -> right click -> copy all as curl
+pbpaste | awk '{print substr($0, 1, length($0)-1) ">>" NR ".jpg"}' | bash
+
+# JS snippet: save all urls of images in google image search:
+urls = Array.from(document.querySelectorAll('.rg_di .rg_meta')).map(el=>JSON.parse(el.textContent).ou);
+window.open('data:text/csv;charset=utf-8,' + escape(urls.join('\n')));
+
 
 =============================
 

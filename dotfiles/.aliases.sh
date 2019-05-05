@@ -120,3 +120,5 @@ alias p="python"
 alias tab2nl="tr $'\t' '\n'"
 alias excel="open -a /Applications/Microsoft\ Excel.app"
 alias nb="jupyter notebook"
+
+alias sshh="ssh 192.168.1.18"
