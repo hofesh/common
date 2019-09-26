@@ -7,6 +7,8 @@ brew doctor # has errors
 # use GNU utils should before setting up common dotfiles
 brew install coreutils  # GNU version of core utils (ls, cat, ..) https://www.gnu.org/software/coreutils
 brew install moreutils  # extras like parallel https://joeyh.name/code/moreutils/  https://rentes.github.io/unix/utilities/2015/07/27/moreutils-package/
+brew install --force parallel
+brew link --overwrite parallel
 brew install findutils  # locate, updatedb, find, xargs  https://www.gnu.org/software/findutils/
 brew install gnu-sed     # GNU sed is not part of coreutils
 brew install gnu-tar

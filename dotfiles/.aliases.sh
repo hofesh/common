@@ -89,7 +89,7 @@ alias tsvtk="csvtk -t"    # tsv variant of csvtk
 alias dm="datamash -H"       # datamash with headers
 alias dmc="datamash -H -t,"  # datamash with headers and tsv
 alias jqc="jq -C"  # jq with color
-alias jqv="jqc . | lessc"  # jq and less with color
+alias jql="jqc . | lessc"  # jq and less with color
 alias len="awk '{print length}'"
 
 alias pgrepu="parallel --pipe fgrep" # unordered parallel grep
