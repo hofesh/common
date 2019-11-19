@@ -58,6 +58,9 @@ cd gitsome/
 pip install -e .
 
 
+# https://github.com/DaFuqtor/MiddleClick-Catalina
+brew cask install middleclick
+
 ======= jupyter ========
 # R-kernel
 # installing R-kernel, if doesnt work try this: had a similar issue. My solution was to add .libPaths(pathVectorVariable) to the file "Rprofile.site" such that the executable R.exe had access to the packages installed through RStudio. Here "pathVectorVariable" is just the vector of path strings where you have your packages installed.
