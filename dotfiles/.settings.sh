@@ -70,3 +70,5 @@ export VISUAL=micro
 export EDITOR="$VISUAL"
 
 export TAB='\t'
+
+ulimit -S -n 20000
