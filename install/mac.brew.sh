@@ -26,6 +26,7 @@ brew install tldr        # https://github.com/tldr-pages/tldr
 brew install watch       # periodic command execution
 brew instal htop
 brew install wget --with-debug
+brew install unrar
 
 # generic mac/bash setup
 brew install python3
@@ -34,7 +35,8 @@ brew install autojump
 brew install shellcheck  # (+ vscode ext)
 brew install micro       # https://github.com/zyedidia/micro
 brew install hh          # https://github.com/dvorka/hstr
-
+brew install ripgrep
+brew install xcv
 brew install ctags       # to have Cmd+T (tag search) in vscode working
 
 # https://github.com/junegunn/fzf
@@ -43,7 +45,6 @@ brew install fzf
 
 # data science setup
 pip3 install csvkit
-brew install xcv
 brew install miller
 brew install jq
 brew install pup     # https://github.com/EricChiang/pup

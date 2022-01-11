@@ -13,5 +13,9 @@ pathappend /usr/local/opt/go/libexec/bin
 pathappend ~/git/python-trezor/trezorlib
 pathprepend ~/git/data-science-at-the-command-line/tools
 
-pathappend /Applications/Unity/Hub/Editor/2019.4.3f1/PlaybackEngines/AndroidPlayer/SDK/platform-tools
+pathappend /Applications/Unity/Hub/Editor/2019.4.12f1/PlaybackEngines/AndroidPlayer/SDK/platform-tools
+# pathappend /Applications/Unity/Hub/Editor/2019.4.12f1/PlaybackEngines/AndroidPlayer/OpenJDK/bin
+# pathappend /Applications/Unity/Hub/Editor/2019.4.12f1/PlaybackEngines/AndroidPlayer/OpenJDK
 #pathprepend /usr/local/Cellar/python/2.7.13_1/bin
+
+# export JAVA_HOME="/usr/libexec/java_home"

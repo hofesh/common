@@ -30,6 +30,7 @@ alias httpServer="python -m SimpleHTTPServer || python3 -m http.server" # local 
 alias pathPrint='echo "$PATH" | tr ":" "\n"'
 alias grepc="grep --color='always'"                                     # grep with color
 alias lessc="less -r"                                                   # less with color 
+alias rgc="rg -p"                                                       # ripgrep with color
 alias hist="cat $historyLogPath/custom*"                                # show all custom history files
 alias histfzf="cat $historyLogPath/custom* | fzf"                       # show all custom history files with fzf
 alias revrows="rev"       # reverse chars in each line
@@ -37,6 +38,7 @@ alias revlines="tail -r"  # reverse order of lines
 alias space="du -ha . | sort -rh | less" # find folders which take up most space
 alias files="du --inodes -d 3 | sort -rh | less" # find folders with most files in them with recursive folders for given depth
 alias files2="du --inodes -S | sort -rh | less" # find folders with most files in them
+alias open_files="sudo lsof -n | cut -f1 -d' ' | uniq -c | sort | tail -n 10"
 
 # search
 alias fr='find / 2> /dev/null -iname '  # find root
@@ -63,6 +65,8 @@ alias gco="git checkout"
 alias grv="git remote -v"
 #alias gl="git log --oneline --all --graph --decorate"
 alias gl='git log --oneline --all --graph --pretty="%C(blue)%h%C(reset) %C(auto)%d%C(reset)- %an %C(green)(%ar)%C(reset) %s"'
+alias grs="git restore"
+alias grsu="git restore --staged"
 
 # xcv cut/copy/paste
 alias fsx="xcv x"   # cut

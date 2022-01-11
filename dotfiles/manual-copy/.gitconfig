@@ -1,0 +1,14 @@
+[difftool]
+	tool = bc3
+    prompt = false
+[merge]
+	tool = bc3
+    prompt = false
+[mergetool "bc3"]
+	trustExitCode = true
+    prompt = false
+[user]
+	name = hofesh
+	email = hofesh
+[pull]
+	rebase = false

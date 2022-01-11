@@ -10,6 +10,8 @@ sha1() { sha1sum | awk '{print toupper($1)}' ;}
 _fr() { find / 2> /dev/null -iname "'*$**'" ;}
 # find files/dirs using indexed mdfind
 spot() { mdfind "kMDItemFSName=='*$(echo $@ | sed -E 's/[ ]+/*/g')*'cd"; }
+spotf() { echo `spot $@ | fzf`; }
+
 # spot a file and cd to it's dir
 goto() {
   found=`spot $@ | head -1`
@@ -100,11 +102,12 @@ zip_folder() { zip -r "$1.zip" "$1"; }
 
 tar_folder() { tar cvf "$1.tar" "$1"; }
 
-git_expire_and_gc() { git reflog expire --expire-unreachable=now --all && git gc --prune=now; }
-
 git_delete_from_history() {
   git filter-branch --force --index-filter "git rm --cached --ignore-unmatch $1" --prune-empty --tag-name-filter cat -- --all  
 }
+
+git_expire_and_gc() { git reflog expire --expire-unreachable=now --all && git gc --prune=now; }
+
 
 # https://stackoverflow.com/questions/10622179/how-to-find-identify-large-commits-in-git-history
 # show largest git files
